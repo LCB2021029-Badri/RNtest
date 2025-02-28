@@ -27,7 +27,17 @@ const DATA = [{
     CTA: 'Explore store',
     icon: require('./assets/mudkip.jpeg'),
     adsView: true,
-    bgColor: 'skyblue',
+    bgColor: '#6234cd',
+},
+{
+    title: 'clear your upcoming bills to earn coins',
+    bank: 'SBI',
+    cardNo: 'XXXX XXXX XXXX 3926',
+    dueDate: 'DUE IN 2 DAYS',
+    CTA: 'Pay now',
+    amount: '26,943',
+    icon: require('./assets/mudkip.jpeg'),
+    adsView: false,
 },
 {
     title: 'your opinion matters',
@@ -35,17 +45,17 @@ const DATA = [{
     CTA: 'Tell us now',
     icon: require('./assets/mudkip.jpeg'),
     adsView: true,
-    bgColor: 'white',
+    bgColor: '#6234cd',
 }];
 
 const HomeScreen = () => {
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: 'black'}}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: '#1f2326'}}>
     <View style={styles.container}>
 
-        <StatusBar  backgroundColor={'black'} barStyle='light-content' />
+        <StatusBar  backgroundColor={'#1b1f21'} barStyle='light-content' />
         <TopView/>
-        <FlatList 
+        <FlatList
             style={{flex:0.87}}
             data={DATA}
             renderItem={itemView}
@@ -75,20 +85,17 @@ const TopView = () => {
                 contentContainerStyle={{
                     flexDirection: 'row', padding: 2,
                 }}
-                showsHorizontalScrollIndicator={false} // Optional: hides the scroll indicator
-            >
+                showsHorizontalScrollIndicator={false}>
                 <StoryIcon icon={require('./assets/mudkip.jpeg')} text='story 1' />
-                <StoryIcon icon={require('./assets/mudkip.jpeg')} text='story 2' />
-                <StoryIcon icon={require('./assets/mudkip.jpeg')} text='story 3' />
-                <StoryIcon icon={require('./assets/mudkip.jpeg')} text='story 4' />
-                <StoryIcon icon={require('./assets/mudkip.jpeg')} text='story 5' />
-                <StoryIcon icon={require('./assets/mudkip.jpeg')} text='story 6' />
-                <StoryIcon icon={require('./assets/mudkip.jpeg')} text='story 5' />
-                <StoryIcon icon={require('./assets/mudkip.jpeg')} text='story 6' />
-                <StoryIcon icon={require('./assets/mudkip.jpeg')} text='story 5' />
-                <StoryIcon icon={require('./assets/mudkip.jpeg')} text='story 6' />
-
+                <StoryIcon icon={require('./assets/mudkip.jpeg')} text='story 1' />
+                <StoryIcon icon={require('./assets/mudkip.jpeg')} text='story 1' />
+                <StoryIcon icon={require('./assets/mudkip.jpeg')} text='story 1' />
+                <StoryIcon icon={require('./assets/mudkip.jpeg')} text='story 1' />
+                <StoryIcon icon={require('./assets/mudkip.jpeg')} text='story 1' />
+                <StoryIcon icon={require('./assets/mudkip.jpeg')} text='story 1' />
+                <StoryIcon icon={require('./assets/mudkip.jpeg')} text='story 1' />
             </ScrollView>
+
         </View>
     );
 };
@@ -146,7 +153,7 @@ const AdView = ({
             </View>
 
             <View style={{ flex: 0.4, }}>
-                <Image style={{ alignSelf: 'center', height: 100, width: 100, }} source={icon} />
+                <Image style={{ alignSelf: 'center', height: 100, width: 100 }} source={icon} />
             </View>
 
         </View>
@@ -204,11 +211,11 @@ const { height, width } = Dimensions.get('window');
 const styles = StyleSheet.create({
     container:{
         flex:1,
-        backgroundColor: 'grey',
+        backgroundColor: '#1f2326',
     },
     containerheader:{
         flex: 0.1,
-        backgroundColor: 'powderblue',
+        backgroundColor: '#1f2326',
         marginBottom: 16,
         marginHorizontal:16,
         paddingTop:30,
@@ -226,7 +233,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
     textViewGrey:{
-        color: 'grey',
+        color: '#7f8386',
         fontSize: 12,
     },
     textViewBlackTitle:{
@@ -273,7 +280,7 @@ const styles = StyleSheet.create({
         lineHeight: 20, alignSelf: 'flex-end',
     },
     containerTopView:{
-        width: width, backgroundColor: 'black', flexDirection: 'row', flex: 0.13, paddingBottom:5,
+        width: width, backgroundColor: '#1b1f21', flexDirection: 'row', flex: 0.13, paddingBottom:5,
     },
 
 });
