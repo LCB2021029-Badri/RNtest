@@ -45,10 +45,12 @@ const HomeScreen = () => {
 
         <StatusBar  backgroundColor={'black'} barStyle='light-content' />
         <TopView/>
-        <FlatList style={{flex:0.87}}
+        <FlatList 
+            style={{flex:0.87}}
             data={DATA}
             renderItem={itemView}
-            ListHeaderComponent={headerComponent} />
+            ListHeaderComponent={headerComponent}
+            showsVerticalScrollIndicator={false} />
     </View>
     </SafeAreaView>
   );
@@ -58,23 +60,17 @@ export default HomeScreen;
 
 const TopView = () => {
     return(
-        <View
-            style={{
-                width: width, backgroundColor: 'black', flexDirection: 'row', flex: 0.13, paddingBottom:5,
-            }}
-        >
+        <View style={styles.containerTopView}>
+
             <View style={{ flex: 0.2, paddingLeft: 15, paddingVertical: 2, justifyContent: 'center' }}>
                 <TouchableOpacity style={{ alignSelf: 'flex-start', justifyContent: 'center' }}>
                     <Image style={{ height: 46, width: 46, borderRadius: 23 }} source={require('./assets/mudkip.jpeg')} />
-                    <Text style={{
-                        color: 'white', fontSize: 12, alignSelf: 'center',
-                        paddingTop: 6
-                    }}>profile</Text>
+                    <Text style={{ color: 'white', fontSize: 12, alignSelf: 'center', paddingTop:6}}>profile</Text>
                 </TouchableOpacity>
             </View>
 
-            <ScrollView
-            style={{flex:0.8}}
+            <ScrollView 
+                style={{flex:0.8}}
                 horizontal
                 contentContainerStyle={{
                     flexDirection: 'row', padding: 2,
@@ -101,7 +97,7 @@ const headerComponent = () => {
     return (
         <View
             style={styles.containerheader}>
-            <Text style={styles.textViewBigWhite}>hello, Badri Akkala</Text>
+            <Text style={styles.textViewBigWhite}>Hello, Badri Akkala</Text>
             <Text style={styles.textViewGrey}>here are today's</Text>
             <Text style={styles.textViewGrey}>recommended actions for you</Text>
         </View>
@@ -177,7 +173,7 @@ const CardView = ({
     return(
         <View style={styles.containerCardView}>
 
-            <Text style={{ flex: 0.5, color: 'black', fontSize: 14, fontWeight: 'bold' }}>{title}</Text>
+            <Text style={styles.textViewCardViewTitle}>{title}</Text>
 
             <View style={{ flex: 0.5, flexDirection: 'row', justifyContent: 'space-between' }}>
                 <View style={{ flex: 0.18, }}>
@@ -185,22 +181,13 @@ const CardView = ({
                         <Image style={{ alignSelf: 'center', height: 26, width: 26 }} source={icon} />
                     </View>
                 </View>
-                <View style={{ flex: 0.52, justifyContent:'space-between', }}>
-                    <Text style={{ color: 'black', fontSize: 12, lineHeight: 20, fontWeight:'bold' }}>{bank}</Text>
-                    <Text style={{ color: 'black', fontSize: 11, lineHeight: 20, }}>{cardNo}</Text>
-                    <Text style={{
-                        color: 'red', fontSize: 11,
-                        letterSpacing: 1.8, lineHeight: 20, fontWeight: 'bold'
-                    }}>{dueDate}</Text>
-
+                <View style={{ flex: 0.52, justifyContent:'space-between'}}>
+                    <Text style={styles.textViewBank}>{bank}</Text>
+                    <Text style={styles.textViewCardNo}>{cardNo}</Text>
+                    <Text style={styles.textViewDureDate}>{dueDate}</Text>
                 </View>
                 <View style={{ flex: 0.3, justifyContent:'space-between', }}>
-                    <Text style={{
-                        color: 'black', fontSize: 13, fontWeight: 'bold',
-                        lineHeight: 20, alignSelf: 'flex-end',
-                    }}>
-                        {amount && `₹${amount}`}
-                    </Text>
+                    <Text style={styles.textViewAmount}>{amount && `₹${amount}`}</Text>
                     <TouchableOpacity style={{alignSelf:'flex-end', backgroundColor: 'black', borderRadius: 20, paddingVertical: 8, paddingHorizontal:15 }}>
                         <Text style={{ color: 'white', fontSize: 12, fontWeight:'bold'}}>{CTA}</Text>
                     </TouchableOpacity>
@@ -274,4 +261,19 @@ const styles = StyleSheet.create({
         borderRadius: 15,
         padding: 25,
     },
+    textViewCardViewTitle:{ flex: 0.5, color: 'black', fontSize: 14, fontWeight: 'bold' },
+    textViewDureDate:{
+        color: 'red', fontSize: 11,
+        letterSpacing: 1.8, lineHeight: 20, fontWeight: 'bold',
+    },
+    textViewCardNo:{ color: 'black', fontSize: 11, lineHeight: 20, },
+    textViewBank:{ color: 'black', fontSize: 12, lineHeight: 20, fontWeight:'bold' },
+    textViewAmount:{
+        color: 'black', fontSize: 13, fontWeight: 'bold',
+        lineHeight: 20, alignSelf: 'flex-end',
+    },
+    containerTopView:{
+        width: width, backgroundColor: 'black', flexDirection: 'row', flex: 0.13, paddingBottom:5,
+    },
+
 });
