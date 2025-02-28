@@ -1,10 +1,10 @@
-import { StyleSheet, Text, View,  Image, TouchableOpacity, FlatList, Dimensions } from 'react-native';
+import { StyleSheet, Text, View,  Image, TouchableOpacity, FlatList, Dimensions, SafeAreaView, StatusBar,ScrollView} from 'react-native';
 import React from 'react';
 
 const DATA = [{
     title: 'clear your upcoming bills to earn coins',
     bank: 'SBI',
-    cardNo: 'XXXX 3926',
+    cardNo: 'XXXX XXXX XXXX 3926',
     dueDate: 'DUE IN 2 DAYS',
     CTA: 'Pay now',
     amount: '26,943',
@@ -14,10 +14,10 @@ const DATA = [{
 {
     title: 'activate your card to make your first payment and earn coins',
     bank: 'HDFC',
-    cardNo: 'XXXX XXXX',
-    dueDate: null,
+    cardNo: 'XXXX XXXX XXXX 9658',
+    dueDate: 'DUE IN 7 DAYS',
     CTA: 'Activate',
-    amount: null,
+    amount: '15,298',
     icon: require('./assets/mudkip.jpeg'),
     adsView: false,
 },
@@ -40,16 +40,62 @@ const DATA = [{
 
 const HomeScreen = () => {
   return (
+    <SafeAreaView style={{ flex: 1, backgroundColor: 'black'}}>
     <View style={styles.container}>
-        <FlatList
+
+        <StatusBar  backgroundColor={'black'} barStyle='light-content' />
+        <TopView/>
+        <FlatList style={{flex:0.87}}
             data={DATA}
             renderItem={itemView}
             ListHeaderComponent={headerComponent} />
     </View>
+    </SafeAreaView>
   );
 };
 
 export default HomeScreen;
+
+const TopView = () => {
+    return(
+        <View
+            style={{
+                width: width, backgroundColor: 'black', flexDirection: 'row', flex: 0.13, paddingBottom:5,
+            }}
+        >
+            <View style={{ flex: 0.2, paddingLeft: 15, paddingVertical: 2, justifyContent: 'center' }}>
+                <TouchableOpacity style={{ alignSelf: 'flex-start', justifyContent: 'center' }}>
+                    <Image style={{ height: 46, width: 46, borderRadius: 23 }} source={require('./assets/mudkip.jpeg')} />
+                    <Text style={{
+                        color: 'white', fontSize: 12, alignSelf: 'center',
+                        paddingTop: 6
+                    }}>profile</Text>
+                </TouchableOpacity>
+            </View>
+
+            <ScrollView
+            style={{flex:0.8}}
+                horizontal
+                contentContainerStyle={{
+                    flexDirection: 'row', padding: 2,
+                }}
+                showsHorizontalScrollIndicator={false} // Optional: hides the scroll indicator
+            >
+                <StoryIcon icon={require('./assets/mudkip.jpeg')} text='story 1' />
+                <StoryIcon icon={require('./assets/mudkip.jpeg')} text='story 2' />
+                <StoryIcon icon={require('./assets/mudkip.jpeg')} text='story 3' />
+                <StoryIcon icon={require('./assets/mudkip.jpeg')} text='story 4' />
+                <StoryIcon icon={require('./assets/mudkip.jpeg')} text='story 5' />
+                <StoryIcon icon={require('./assets/mudkip.jpeg')} text='story 6' />
+                <StoryIcon icon={require('./assets/mudkip.jpeg')} text='story 5' />
+                <StoryIcon icon={require('./assets/mudkip.jpeg')} text='story 6' />
+                <StoryIcon icon={require('./assets/mudkip.jpeg')} text='story 5' />
+                <StoryIcon icon={require('./assets/mudkip.jpeg')} text='story 6' />
+
+            </ScrollView>
+        </View>
+    );
+};
 
 const headerComponent = () => {
     return (
@@ -59,6 +105,19 @@ const headerComponent = () => {
             <Text style={styles.textViewGrey}>here are today's</Text>
             <Text style={styles.textViewGrey}>recommended actions for you</Text>
         </View>
+    );
+};
+
+const StoryIcon = ({ icon, text }: { icon: any, text: string }) => {
+    return (
+        <TouchableOpacity style={{ alignItems: 'center', justifyContent: 'center', marginVertical:2, marginHorizontal:6 }}>
+            <View style={{ justifyContent: 'center', alignItems: 'center', height: 46, 
+                    width: 46, borderRadius: 23, borderWidth: 1.5, borderColor: 'red' }}>
+                <Image style={{ height: 34, width: 34, borderRadius: 17, alignSelf: 'center' }} source={icon} />
+            </View>
+            <Text style={{ color: 'white', fontSize: 12, paddingTop: 6 }}>{text}</Text>
+        </TouchableOpacity>
+
     );
 };
 
@@ -153,23 +212,23 @@ const CardView = ({
     );
 };
 
-
-const windowHeight = Dimensions.get('window').height;
+const { height, width } = Dimensions.get('window');
 
 const styles = StyleSheet.create({
     container:{
-        flex: 0.87,
-        paddingHorizontal: 20,
+        flex:1,
         backgroundColor: 'grey',
     },
     containerheader:{
         flex: 0.1,
         backgroundColor: 'powderblue',
-        marginBottom: 20,
+        marginBottom: 16,
+        marginHorizontal:16,
         paddingTop:30,
     },
     containerAdView:{
         marginVertical: 10,
+        marginHorizontal:16,
         borderRadius: 15,
         padding: 25,
         flexDirection: 'row',
@@ -194,12 +253,24 @@ const styles = StyleSheet.create({
         lineHeight: 18,
         marginTop: 5,
     },
-    textViewWhite:{ color: 'white', fontSize: 12, fontWeight: 'bold'},
-    button:{ alignSelf: 'center', backgroundColor: 'black', borderRadius: 20, paddingVertical: 10, paddingHorizontal: 15, marginTop: 15 },
+    textViewWhite:{
+        color: 'white',
+        fontSize: 12,
+        fontWeight: 'bold',
+    },
+    button:{
+        alignSelf: 'flex-start',
+        backgroundColor: 'black',
+        borderRadius: 20,
+        paddingVertical: 10,
+        paddingHorizontal: 15,
+        marginTop: 15,
+    },
     containerCardView:{
         backgroundColor: 'white',
-        height: windowHeight/4.3,
+        height: height / 4.3, //fixed
         marginVertical: 10,
+        marginHorizontal:16,
         borderRadius: 15,
         padding: 25,
     },
