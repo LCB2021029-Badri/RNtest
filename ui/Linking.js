@@ -15,11 +15,12 @@ const config = {
     },
 };
 
-const linking = {
+const Linking = {
     // for deep linking
-    // RNText://open/{ScreenName}/{ExtraInfoToRetrievex}
-    prefixes:['RNTest://open'],
+    // RNText://open/{ScreenName}/{params}
+    // https://example.com/{ScreenName}/{params}
+    prefixes: ['RNTest://open', 'http://example.com', 'https://example.com'],
     config,
 };
 
-export default linking;
+export default Linking;
