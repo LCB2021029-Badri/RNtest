@@ -7,12 +7,13 @@ import HomeScreen from './uiNeoPop/HomeScreen';
 import {name as appName} from './app.json';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import linking from './ui/Linking';
 
 const Stack = createNativeStackNavigator();
 
 const Badri = () =>{
     return(
-        <NavigationContainer>
+        <NavigationContainer linking={linking}>
             <Stack.Navigator>
                 <Stack.Screen name="App" component={App} />
                 <Stack.Screen name="HomeScreen" component={HomeScreen}/>

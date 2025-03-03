@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View,  Image, TouchableOpacity, FlatList, Dimensions, SafeAreaView, StatusBar,ScrollView} from 'react-native';
+import { StyleSheet, Text, View,  Image, TouchableOpacity, FlatList, Dimensions, SafeAreaView, StatusBar, ScrollView} from 'react-native';
 import React from 'react';
 
 const DATA = [{
