@@ -1,21 +1,17 @@
 import { StyleSheet, Text, View, Linking, Button } from 'react-native';
 import React from 'react';
-import { RouteProp } from '@react-navigation/native';
+import { useRoute, RouteProp } from '@react-navigation/native';
 
-type AppScreenRouteProp = RouteProp<{
-  App: {
-    id?: string;  // The id parameter is optional
-  };
-}, 'App'>;
+type AppRouteParams = {
+  id?: string; // id is optional
+};
 
-interface AppProps {
-  route: AppScreenRouteProp;
-}
+type AppRouteProp = RouteProp<{ App: AppRouteParams }, 'App'>;
 
 // basic app
-const App = ({route}:AppProps) => {
-
-  const id = route.params?.id || 'No ID found';
+const App = () => {
+  const route = useRoute<AppRouteProp>();
+  const {id} = route.params || {};
   console.log('Hello World!');
   return (
     <View style={styles.container}>
