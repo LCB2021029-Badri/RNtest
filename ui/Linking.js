@@ -1,6 +1,3 @@
-import HomeScreen from '../uiNeoPop/HomeScreen';
-import MyScreen from './MyScreen';
-
 const config = {
     // names should be the same as stack navigation container
     screens: {
