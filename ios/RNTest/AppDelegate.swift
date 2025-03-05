@@ -18,7 +18,7 @@ class AppDelegate: RCTAppDelegate {
   
   // This handles custom URL schemes like RNTest://open/{screenname}/{params}
   override func application(_ application: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-    if url.scheme == "RNTest" && url.host == "open" {
+    if url.scheme == "rntest" && url.host == "open" {
       // Forward the URL to React Native's Linking module
       return RCTLinkingManager.application(application, open: url, options: options)
     }

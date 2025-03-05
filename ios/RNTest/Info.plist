@@ -55,7 +55,7 @@
             <string>com.yourapp.bundleid</string>
             <key>CFBundleURLSchemes</key>
             <array>
-                <string>RNTest</string> <!-- Equivalent to android:scheme="RNTest" -->
+                <string>rntest</string> <!-- Equivalent to android:scheme="RNTest" -->
             </array>
         </dict>
     </array>

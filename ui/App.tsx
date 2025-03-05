@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, Button, Linking, TouchableOpacity } from 'react-native';
 import React from 'react';
 import { useRoute, RouteProp, useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
@@ -19,7 +19,14 @@ const App = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.textStyles}>id from deep linking is {id} </Text>
-      <Button title="App Screen Deep Link" onPress={() => navigation.navigate('App', {id:'123'}) }/>
+
+      <Button title="App Screen basic navigation" onPress={() => navigation.navigate('App', {id:'123'}) }/>
+
+
+      <Button title="AppScreen Deep Link" onPress={() => Linking.openURL('rntest://open/app/123').catch(err => console.error("Couldn't open URL", err)) }/>
+      <Button title="HomeScreen Deep Link" onPress={ () => Linking.openURL('rntest://open/homescreen').catch(err => console.error("Couldn't open URL", err)) }/>
+      <Button title="MyScreen Deep Link" onPress={() => Linking.openURL('rntest://open/myscreen').catch(err => console.error("Couldn't open URL", err)) }/>
+
       {/* <Button title="Update Options" onPress={() => navigation.setOptions({ title: 'Updated Options!' }) }/> */}
       {/* <Button title="To Browser via Linking" onPress={() => Linking.openURL('https://github.com/LCB2021029-Badri')}/> */}
       {/* <Button title="To Mail via Linking" onPress={() => Linking.openURL('mailto:badriakkalaofficial@gmail.com')} /> */}
@@ -40,5 +47,17 @@ const styles = StyleSheet.create({
   textStyles:{
     fontSize: 20,
     textAlign: 'center',
+  },
+  button: {
+    backgroundColor: '#007bff',
+    paddingVertical: 12,
+    paddingHorizontal: 20,
+    borderRadius: 8,
+    marginVertical: 10,
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: 'bold',
   },
 });

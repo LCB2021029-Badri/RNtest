@@ -15,10 +15,10 @@ const Stack = createNativeStackNavigator();
 const Badri = () =>{
     return(
         <NavigationContainer linking={Linking}>
-            <Stack.Navigator initialRouteName="App">
-                <Stack.Screen name="App" component={App}/>
-                <Stack.Screen name="HomeScreen" component={HomeScreen}/>
-                <Stack.Screen name="MyScreen" component={MyScreen}/>
+            <Stack.Navigator initialRouteName="app">
+                <Stack.Screen name="app" component={App}/>
+                <Stack.Screen name="homescreen" component={HomeScreen}/>
+                <Stack.Screen name="myscreen" component={MyScreen}/>
             </Stack.Navigator>
         </NavigationContainer>
     );

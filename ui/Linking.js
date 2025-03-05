@@ -1,22 +1,22 @@
 const config = {
     // names should be the same as stack navigation container
     screens: {
-        App: {
+        app: {
             path: '/app/:id?',
             parse: {
                 id: (id) => (id ? `${id}` : ''),
             },
         },
-        HomeScreen: { path: '/homescreen' },
-        MyScreen: { path: '/myscreen' },
+        homescreen: { path: '/homescreen' },
+        myscreen: { path: '/myscreen' },
     },
 };
 
 const Linking = {
     // for deep linking
-    // RNText://open/{ScreenName}/{params}
+    // rntest://open/{ScreenName}/{params}
     // https://example.com/{ScreenName}/{params}
-    prefixes: ['RNTest://open'],
+    prefixes: ['rntest://open'],
     config,
 };
 
