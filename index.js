@@ -1,3 +1,4 @@
+import 'react-native-gesture-handler';
 import {AppRegistry} from 'react-native';
 import App from './ui/App';
 import Screen2 from './ui/Screen2';
@@ -15,7 +16,7 @@ const Badri = () =>{
     return(
         <NavigationContainer linking={Linking}>
             <Stack.Navigator initialRouteName="App">
-                <Stack.Screen name="App" component={App} initialParams={{ id: 321 }}/>
+                <Stack.Screen name="App" component={App}/>
                 <Stack.Screen name="HomeScreen" component={HomeScreen}/>
                 <Stack.Screen name="MyScreen" component={MyScreen}/>
             </Stack.Navigator>
