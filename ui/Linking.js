@@ -12,12 +12,16 @@ const config = {
     },
 };
 
-const Linking = {
+const linking = {
     // for deep linking
     // rntest://open/{ScreenName}/{params}
-    // https://example.com/{ScreenName}/{params}
-    prefixes: ['rntest://open'],
+    // https://yourdomain.com/{ScreenName}/{params}
+    prefixes: [
+        'rntest://open',
+        'https://yourdomain.com',
+        'http://yourdomain.com',
+    ],
     config,
 };
 
-export default Linking;
+export default linking;

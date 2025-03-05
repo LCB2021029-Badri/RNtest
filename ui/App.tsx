@@ -1,5 +1,5 @@
-import { StyleSheet, Text, View, Button, Linking, TouchableOpacity } from 'react-native';
-import React from 'react';
+import { StyleSheet, Text, View, Button, Linking, TouchableOpacity, Alert } from 'react-native';
+import React, { useEffect } from 'react';
 import { useRoute, RouteProp, useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
@@ -13,6 +13,30 @@ type AppRouteProp = RouteProp<RootStackParamList, 'App'>;
 
 // basic app
 const App = () => {
+
+  /*
+  // manual navigation of deep link
+  useEffect(()=>{
+    const getUrl = async () => {
+      const initialUrl = await Linking.getInitialURL();
+    if(initialUrl === null){ return; }
+    if(initialUrl.includes('app')){
+      Alert.alert(initialUrl);
+      navigation.navigate('app', {id:'1234'});
+    }
+    if(initialUrl.includes('homescreen')){
+      Alert.alert(initialUrl);
+      navigation.navigate('homescreen');
+    }
+    if(initialUrl.includes('myscreen')){
+      Alert.alert(initialUrl);
+      navigation.navigate('myscreen');
+    }
+    };
+    getUrl();
+  });
+  */
+
   const navigation = useNavigation<AppNavigationProp>();
   const route = useRoute<AppRouteProp>();
   const {id} = route.params || {};
@@ -20,7 +44,7 @@ const App = () => {
     <View style={styles.container}>
       <Text style={styles.textStyles}>id from deep linking is {id} </Text>
 
-      <Button title="App Screen basic navigation" onPress={() => navigation.navigate('App', {id:'123'}) }/>
+      <Button title="App Screen basic navigation" onPress={() => navigation.navigate('app', {id:'123'}) }/>
 
 
       <Button title="AppScreen Deep Link" onPress={() => Linking.openURL('rntest://open/app/123').catch(err => console.error("Couldn't open URL", err)) }/>
