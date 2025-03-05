@@ -3,12 +3,6 @@ import React from 'react';
 import { useRoute, RouteProp, useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
-// type AppRouteParams = {
-//   id?: string; // id is optional
-// };
-
-// type AppRouteProp = RouteProp<{ App: AppRouteParams }, 'App'>;
-
 type RootStackParamList = {
   App: { id?: string };
   HomeScreen: undefined;
@@ -25,7 +19,7 @@ const App = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.textStyles}>id from deep linking is {id} </Text>
-      <Button title="App Deep Link" onPress={() => navigation.navigate('App', {id:'123'}) }/>
+      <Button title="App Screen Deep Link" onPress={() => navigation.navigate('App', {id:'123'}) }/>
       {/* <Button title="Update Options" onPress={() => navigation.setOptions({ title: 'Updated Options!' }) }/> */}
       {/* <Button title="To Browser via Linking" onPress={() => Linking.openURL('https://github.com/LCB2021029-Badri')}/> */}
       {/* <Button title="To Mail via Linking" onPress={() => Linking.openURL('mailto:badriakkalaofficial@gmail.com')} /> */}
