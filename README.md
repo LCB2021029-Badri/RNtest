@@ -10,12 +10,12 @@ SCREENSHOTS:
 
 
 DEEP LINKS:
-```
-rntest://open/app
+- `rntest://open/app` → Opens the "App" screen  
+- `rntest://open/app/{id}` → Opens the "App" screen with `id` as a route parameter
+- `rntest://open/homescreen` → Opens "HomeScreen"  
+- `rntest://open/myscreen` → Opens "MyScreen"  
 
-rntest://open/app/{id}
-
-rntest://open/homescreen
-
-rntest://open/myscreen
-```
+**Test on a connected emulator/device:**  
+- **Android:** `npx uri-scheme open "<DEEP_LINK_URL>" --android`  
+- **iOS:** `npx uri-scheme open "<DEEP_LINK_URL>" --ios`  
+- **example**: `npx uri-scheme open "rntest://open/homescreen" --android` 
